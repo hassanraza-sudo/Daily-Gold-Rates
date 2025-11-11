@@ -1,6 +1,6 @@
 // src/components/GoldRateDisplay.tsx
 
-import { useGoldRate } from "../contexts/GoldRateContext.tsx";
+import { useGoldRate } from "../contexts/GoldRateContext";
 export default function GoldRateDisplay() {
   // Destructure the values from the context hook
   const { currentRate, loading, refreshRates } = useGoldRate();
