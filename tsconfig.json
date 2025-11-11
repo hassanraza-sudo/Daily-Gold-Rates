@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "module": "ESNext",
     "target": "ESNext",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "allowJs": true,
-    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"]
-    }
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": false,
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }
