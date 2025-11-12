@@ -10,44 +10,37 @@ export function Hero() {
   useEffect(() => {
     const fetchGoldRate = async () => {
       try {
-        // Example: currency can be changed dynamically (e.g., AED, PKR, USD)
-        const currency = "EUR";
-        const apiKey = import.meta.env.VITE_API_KEY;
+        setLoading(true);
 
+        const currency = "AED"; // Default: Dirham
+        const apiKey = import.meta.env.VITE_API_KEY;
+        console.log("api key is : ", apiKey);
+
+        // ✅ Correct base and currencies usage
         const res = await fetch(
-          `https://api.metalpriceapi.com/v1/latest?api_key=${apiKey}&base=USD&currencies=XAU,${currency}`
+          `https://api.metalpriceapi.com/v1/latest?api_key=${apiKey}&base=XAU&currencies=${currency}`
         );
         const data = await res.json();
         console.log("API Data:", data);
 
-        if (!data?.rates?.USDXAU || !data?.rates?.[currency]) {
-          throw new Error("Invalid API response");
-        }
+        // if (!data?.rates?.[currency]) {
+        //   throw new Error("Invalid API response");
+        // }
 
-        // Extract rates
-        const goldPerOunceUSD = data.rates.USDXAU; // gold per ounce in USD
-        const exchangeRate = data.rates[currency]; // exchange rate of 1 USD in target currency
-
-        // Convert ounce to grams
-        const goldPerOunceLocal = goldPerOunceUSD * exchangeRate;
+        // 1 XAU = ? AED → now correct
+        const goldPerOunceLocal = data.rates[currency];
         const goldPerGramLocal = goldPerOunceLocal / 31.1035;
 
-        // Karat multipliers
         const karatMultipliers = {
           "24K": 1.0,
           "22K": 0.9167,
           "18K": 0.75,
         };
 
-        // Calculate prices per gram for each karat
-        const gold_24k = goldPerGramLocal * karatMultipliers["24K"];
-        const gold_22k = goldPerGramLocal * karatMultipliers["22K"];
-        const gold_18k = goldPerGramLocal * karatMultipliers["18K"];
-
         setCurrentRate({
-          gold_24k,
-          gold_22k,
-          gold_18k,
+          gold_24k: goldPerGramLocal * karatMultipliers["24K"],
+          gold_22k: goldPerGramLocal * karatMultipliers["22K"],
+          gold_18k: goldPerGramLocal * karatMultipliers["18K"],
           currency,
           created_at: new Date().toISOString(),
         });

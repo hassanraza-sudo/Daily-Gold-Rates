@@ -22,8 +22,8 @@ export function GoldCalculator() {
   const [weight, setWeight] = useState<string>("10");
   const [unit, setUnit] = useState<"gram" | "tola">("gram");
   const [purity, setPurity] = useState<"24K" | "22K" | "18K">("24K");
-  const [country, setCountry] = useState<string>("Pakistan");
-  const [currency, setCurrency] = useState<string>("PKR");
+  const [country, setCountry] = useState<string>("UAE");
+  const [currency, setCurrency] = useState<string>("AED");
   const [goldPerGram, setGoldPerGram] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -51,20 +51,23 @@ export function GoldCalculator() {
     const fetchGoldRate = async () => {
       try {
         setLoading(true);
-        const currencyCode = countryToCurrency[country] || "USD";
-        setCurrency(currencyCode);
+
+        // ✅ Ensure correct mapping but don’t override unless needed
+        const currencyCode = countryToCurrency[country] || currency;
+        if (currency !== currencyCode) setCurrency(currencyCode);
 
         const apiKey = import.meta.env.VITE_API_KEY;
+        if (!apiKey) {
+          console.error("API key not found in .env file");
+          return;
+        }
 
-        console.log("api key is : ", apiKey);
         const url = `https://api.metalpriceapi.com/v1/latest?api_key=${apiKey}&base=USD&currencies=XAU,${currencyCode}`;
-
         const res = await fetch(url);
         const data = await res.json();
 
         if (!data?.rates?.USDXAU || !data?.rates[currencyCode]) {
           console.error("Invalid API response", data);
-          setLoading(false);
           return;
         }
 
