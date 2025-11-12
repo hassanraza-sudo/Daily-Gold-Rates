@@ -14,14 +14,12 @@ export function Hero() {
 
         const currency = "AED"; // Default: Dirham
         const apiKey = import.meta.env.VITE_API_KEY;
-        console.log("api key is : ", apiKey);
 
         // ✅ Correct base and currencies usage
         const res = await fetch(
           `https://api.metalpriceapi.com/v1/latest?api_key=${apiKey}&base=XAU&currencies=${currency}`
         );
         const data = await res.json();
-        console.log("API Data:", data);
 
         // if (!data?.rates?.[currency]) {
         //   throw new Error("Invalid API response");
