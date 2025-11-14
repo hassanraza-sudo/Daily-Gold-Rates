@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -42,29 +42,9 @@ export function ContactPage() {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      content: "contact@dailygoldrate.com",
-      link: "mailto:contact@dailygoldrate.com",
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      content: "+97 1503905705",
-      link: "tel:+971503905705",
-    },
-    {
-      icon: MapPin,
-      title: "Address",
-      content: "Sharjah, UAE",
-      link: "#",
-    },
-  ];
-
   return (
     <div className="min-h-screen">
+      {/* Header Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -82,31 +62,8 @@ export function ContactPage() {
         </div>
       </motion.section>
 
+      {/* Contact Form */}
       <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {contactInfo.map((info, index) => (
-            <motion.a
-              key={index}
-              href={info.link}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader className="text-center">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-yellow-100 dark:bg-yellow-900/30 mx-auto mb-4">
-                    <info.icon className="h-8 w-8 text-yellow-600" />
-                  </div>
-                  <CardTitle>{info.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {info.content}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </motion.a>
-          ))}
-        </div>
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,7 +75,7 @@ export function ContactPage() {
               <CardTitle>Send us a message</CardTitle>
               <CardDescription>
                 Fill out the form below and we'll get back to you within 24
-                hours
+                hours.
               </CardDescription>
             </CardHeader>
             <CardContent>
