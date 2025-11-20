@@ -33,14 +33,7 @@ export function Footer() {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/blog"
-                  className="text-sm text-muted-foreground hover:text-yellow-600 transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
+
               <li>
                 <Link
                   to="/about"
@@ -65,16 +58,8 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  to="/admin"
-                  className="text-sm text-muted-foreground hover:text-yellow-600 transition-colors"
-                >
-                  Admin Dashboard
-                </Link>
-              </li>
-              <li>
                 <a
-                  href="#"
+                  href="/privacy-policy"
                   className="text-sm text-muted-foreground hover:text-yellow-600 transition-colors"
                 >
                   Privacy Policy
@@ -82,18 +67,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/terms-of-use"
                   className="text-sm text-muted-foreground hover:text-yellow-600 transition-colors"
                 >
                   Terms of Service
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground hover:text-yellow-600 transition-colors"
-                >
-                  Disclaimer
                 </a>
               </li>
             </ul>
@@ -133,12 +110,6 @@ export function Footer() {
               className="flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-yellow-600 hover:text-white transition-colors pointer-events-auto"
             >
               <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:example@gmail.com"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-yellow-600 hover:text-white transition-colors pointer-events-auto"
-            >
-              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>
