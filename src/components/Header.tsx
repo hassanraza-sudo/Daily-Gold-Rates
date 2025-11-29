@@ -14,6 +14,7 @@ export function Header() {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" },
+    { path: "/blog", label: "Blog" },
   ];
 
   const isActive = (path: string) => location.pathname === path;

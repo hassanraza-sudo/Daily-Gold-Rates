@@ -9,7 +9,9 @@ import { ContactPage } from "@/pages/ContactPage";
 import { Toaster } from "@/components/ui/toaster";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfUse from "@/pages/TermsOfUse";
+import Blog from "./pages/blog";
+import SinglePost from "./pages/SinglePost";
 function App() {
-    return (_jsx(ThemeProvider, { children: _jsxs(Router, { children: [_jsxs("div", { className: "min-h-screen flex flex-col", children: [_jsx(Header, {}), _jsx("main", { className: "flex-1", children: _jsxs(Routes, { children: [_jsx(Route, { path: "/", element: _jsx(HomePage, {}) }), _jsx(Route, { path: "/about", element: _jsx(AboutPage, {}) }), _jsx(Route, { path: "/contact", element: _jsx(ContactPage, {}) }), _jsx(Route, { path: "/privacy-policy", element: _jsx(PrivacyPolicy, {}) }), _jsx(Route, { path: "/terms-of-use", element: _jsx(TermsOfUse, {}) })] }) }), _jsx(Footer, {})] }), _jsx(Toaster, {})] }) }));
+    return (_jsx(ThemeProvider, { children: _jsxs(Router, { children: [_jsxs("div", { className: "min-h-screen flex flex-col", children: [_jsx(Header, {}), _jsx("main", { className: "flex-1", children: _jsxs(Routes, { children: [_jsx(Route, { path: "/", element: _jsx(HomePage, {}) }), _jsx(Route, { path: "/about", element: _jsx(AboutPage, {}) }), _jsx(Route, { path: "/contact", element: _jsx(ContactPage, {}) }), _jsx(Route, { path: "/privacy-policy", element: _jsx(PrivacyPolicy, {}) }), _jsx(Route, { path: "/terms-of-use", element: _jsx(TermsOfUse, {}) }), _jsx(Route, { path: "/blog", element: _jsx(Blog, {}) }), _jsx(Route, { path: "/blog/:slug", element: _jsx(SinglePost, {}) })] }) }), _jsx(Footer, {})] }), _jsx(Toaster, {})] }) }));
 }
 export default App;

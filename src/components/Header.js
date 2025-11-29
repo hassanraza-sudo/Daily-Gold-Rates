@@ -13,6 +13,7 @@ export function Header() {
         { path: "/", label: "Home" },
         { path: "/about", label: "About" },
         { path: "/contact", label: "Contact" },
+        { path: "/blog", label: "Blog" },
     ];
     const isActive = (path) => location.pathname === path;
     return (_jsxs("header", { className: "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", children: [_jsx("div", { className: "container mx-auto px-4", children: _jsxs("div", { className: "flex h-16 items-center justify-between", children: [_jsxs(Link, { to: "/", className: "flex items-center space-x-2", children: [_jsx("div", { className: "flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600", children: _jsx("span", { className: " font-bold text-3xl pb-2 text-white", children: "\uD83E\uDDC8" }) }), _jsx("span", { className: "text-xl font-bold bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent", children: "DailyGoldRate" })] }), _jsxs("nav", { className: "hidden md:flex items-center space-x-6", children: [navItems.map((item) => (_jsx(Link, { to: item.path, className: `text-sm font-medium transition-colors hover:text-yellow-600 ${isActive(item.path)

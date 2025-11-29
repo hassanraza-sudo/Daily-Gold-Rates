@@ -8,6 +8,8 @@ import { ContactPage } from "@/pages/ContactPage";
 import { Toaster } from "@/components/ui/toaster";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfUse from "@/pages/TermsOfUse";
+import Blog from "./pages/blog";
+import SinglePost from "./pages/SinglePost";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<SinglePost />} />
             </Routes>
           </main>
           <Footer />
